@@ -13,28 +13,43 @@
     />
   </head>
   <script>
-    const loadComponents = (id, url) => {
+    const loadComponents = (id, url, callback) => {
       fetch(url)
         .then((response) => response.text())
         .then((html) => {
           document.getElementById(id).innerHTML = html;
+          if (callback) callback();
         });
     };
 
     window.onload = () => {
-      loadComponents("header", "src/sections/header.html");
+      loadComponents("header", "src/sections/header.html", initializeMenu);
       loadComponents("hero", "src/sections/hero.html");
-      loadComponents("about", "src/sections/about.html");
       loadComponents("contact", "src/sections/contact.html");
       loadComponents("footer", "src/sections/footer.html");
     };
+
+    function initializeMenu() {
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuBtn && closeBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("translate-x-full");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          mobileMenu.classList.add("translate-x-full");
+        });
+      }
+    }
   </script>
 
 
   <body>
     <div id="header"></div>
     <div id="hero"></div>
-    <div id="about"></div>
     <div id="contact"></div>
     <div id="footer"></div>
   </body>
