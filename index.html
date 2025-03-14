@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/output.css" />
-    <title>Website project template</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <script>
-    const loadComponents = (id, url, callback) => {
-      fetch(url)
-        .then((response) => response.text())
-        .then((html) => {
-          document.getElementById(id).innerHTML = html;
-          if (callback) callback();
-        });
-    };
 
-    window.onload = () => {
-      loadComponents("header", "src/sections/header.html", initializeMenu);
-      loadComponents("hero", "src/sections/hero.html");
-      loadComponents("contact", "src/sections/contact.html");
-      loadComponents("footer", "src/sections/footer.html");
-    };
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/dist/output.css" />
+  <title>Website project template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+<script>
+  const loadComponents = (id, url, callback) => {
+    fetch(url)
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById(id).innerHTML = html;
+        if (callback) callback();
+      });
+  };
 
-    function initializeMenu() {
-      const menuBtn = document.getElementById("menu-btn");
-      const closeBtn = document.getElementById("close-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
+  window.onload = () => {
+    loadComponents("header", "src/sections/header.html", initializeMenu);
+    loadComponents("hero", "src/sections/hero.html");
+    loadComponents("contact", "src/sections/contact.html");
+    loadComponents("footer", "src/sections/footer.html");
+  };
 
-      if (menuBtn && closeBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.remove("translate-x-full");
-        });
+  function initializeMenu() {
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-        closeBtn.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-        });
-      }
+    if (menuBtn && closeBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
+
+        menuBtn.classList.add("hidden")
+        closeBtn.classList.remove("hidden")
+      });
+      
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+
+        menuBtn.classList.remove("hidden")
+        closeBtn.classList.add("hidden")
+      });
     }
-  </script>
+  }
+</script>
 
 
-  <body>
-    <div id="header"></div>
-    <div id="hero"></div>
-    <div id="contact"></div>
-    <div id="footer"></div>
-  </body>
+<body>
+  <div id="header"></div>
+  <div id="hero"></div>
+  <div id="contact"></div>
+  <div id="footer"></div>
+</body>
+
 </html>
