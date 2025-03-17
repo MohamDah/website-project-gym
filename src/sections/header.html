@@ -1,5 +1,5 @@
 <!-- desktop -->
-<div class="flex max-w-[1514px] mx-auto justify-between pt-2 pb-2 px-4">
+<div class="flex max-w-[1514px] mx-auto justify-between pt-2 pb-2 px-4 fixed z-10 w-full top-0">
   <h1 class="font-medium text-lg">DE<br />EN</h1>
   <h2 class="font-bold text-2xl flex items-center justify-center">
     Baumeister
@@ -12,30 +12,18 @@
   </ul>
   <!-- Mobile -->
   <div class="flex justify-center items-center md:hidden">
-    <img
-      id="menu-btn"
-      src="/src/assets/menu.png"
-      alt="Menu"
-      class="min-h-5 cursor-pointer"
-    />
-    <img
-      id="close-btn"
-      src="/src/assets/close.png"
-      alt="Close"
-      class="min-h-5 cursor-pointer hidden"
-    />
+    <img id="menu-btn" src="/src/assets/menu.png" alt="Menu" class="min-h-5 cursor-pointer" />
+    <img id="close-btn" src="/src/assets/close.png" alt="Close" class="min-h-5 cursor-pointer hidden" />
   </div>
 </div>
 
 <!-- Mobile menu -->
-<div
-  id="mobile-menu"
-  class="fixed h-full w-full transform translate-x-full transition-transform duration-300 ease-in-out"
-  >
+<div id="mobile-menu"
+  class="fixed h-full w-full transform translate-x-full transition-transform duration-300 ease-in-out bg-[#EFECEA]">
   <!-- class="fixed top-0 right-0 h-full w-full transform translate-x-full transition-transform duration-300 ease-in-out" -->
-  <ul
-    class="font-medium flex flex-col gap-10 px-6 text-darkgreen text-center text-2xl"
-  >
+  <img class="absolute h-full w-full lg:hidden top-48 -z-10" 
+  src="/src/assets/fullChips.svg" alt="Chips Background">
+  <ul class="font-medium flex flex-col gap-10 px-6 text-darkgreen text-center text-2xl mt-20">
     <li>About</li>
     <li>Services</li>
     <li>References</li>
