@@ -17,7 +17,7 @@
       fetch(url)
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById(id).innerHTML = html;
+          document.getElementById(id).outerHTML = html;
           if (callback) callback();
         });
     };
@@ -25,6 +25,7 @@
     window.onload = () => {
       loadComponents("header", "src/sections/header.html", initializeMenu);
       loadComponents("hero", "src/sections/hero.html");
+      loadComponents("about", "src/sections/about.html");
       loadComponents("services", "src/sections/services.html");
       loadComponents("contact", "src/sections/contact.html");
       loadComponents("footer", "src/sections/footer.html");
@@ -49,10 +50,13 @@
 
 
   <body>
-    <div id="header"></div>
-    <div id="hero"></div>
-    <div id="services"></div>
-    <div id="contact"></div>
-    <div id="footer"></div>
+    <header id="header"></header>
+    <main>
+      <div id="hero"></div>
+      <div id="about"></div>
+      <div id="services"></div>
+      <div id="contact"></div>
+    </main>
+    <footer id="footer"></footer>
   </body>
 </html>
