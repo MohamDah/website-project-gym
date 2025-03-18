@@ -4,12 +4,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        outfit: ['"Outfit"', 'sans-serif']
+        outfit: ['"Outfit"', "sans-serif"],
       },
       colors: {
-        darkgreen: "#00672E"
-      }
+        darkgreen: "#00672E",
+        primary: "#EFECEA",
+      },
     },
   },
   plugins: [],
-}
+};
