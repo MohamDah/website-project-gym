@@ -31,22 +31,36 @@
       loadComponents("footer", "src/sections/footer.html");
     };
 
-    function initializeMenu() {
-      const menuBtn = document.getElementById("menu-btn");
-      const closeBtn = document.getElementById("close-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
+  function initializeMenu() {
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-      if (menuBtn && closeBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.remove("translate-x-full");
-        });
+    if (menuBtn && closeBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
 
-        closeBtn.addEventListener("click", () => {
+        menuBtn.classList.add("hidden")
+        closeBtn.classList.remove("hidden")
+      });
+      
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+
+        menuBtn.classList.remove("hidden")
+        closeBtn.classList.add("hidden")
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && menuBtn.classList.contains("hidden")) {
           mobileMenu.classList.add("translate-x-full");
-        });
-      }
+          menuBtn.classList.remove("hidden")
+          closeBtn.classList.add("hidden")
+        }
+      })
     }
-  </script>
+  }
+</script>
 
   <body class="bg-primarybg">
     <header id="header"></header>
