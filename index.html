@@ -13,28 +13,62 @@
     />
   </head>
   <script>
-    const loadComponents = (id, url) => {
+    const loadComponents = (id, url, callback) => {
       fetch(url)
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById(id).innerHTML = html;
+          document.getElementById(id).outerHTML = html;
+          if (callback) callback();
         });
     };
 
     window.onload = () => {
-      loadComponents("header", "src/sections/header.html");
+      loadComponents("header", "src/sections/header.html", initializeMenu);
       loadComponents("hero", "src/sections/hero.html");
       loadComponents("about", "src/sections/about.html");
       loadComponents("contact", "src/sections/contact.html");
       loadComponents("footer", "src/sections/footer.html");
     };
-  </script>
 
-  <body>
-    <div id="header"></div>
-    <div id="hero"></div>
-    <div id="about"></div>
-    <div id="contact"></div>
-    <div id="footer"></div>
+  function initializeMenu() {
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && closeBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
+
+        menuBtn.classList.add("hidden")
+        closeBtn.classList.remove("hidden")
+      });
+      
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+
+        menuBtn.classList.remove("hidden")
+        closeBtn.classList.add("hidden")
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && menuBtn.classList.contains("hidden")) {
+          mobileMenu.classList.add("translate-x-full");
+          menuBtn.classList.remove("hidden")
+          closeBtn.classList.add("hidden")
+        }
+      })
+    }
+  }
+</script>
+
+
+  <body class="bg-[#EFECEA]">
+    <header id="header"></header>
+    <main>
+      <div id="hero"></div>
+      <div id="about"></div>
+      <div id="contact"></div>
+    </main>
+    <footer id="footer"></footer>
   </body>
 </html>
