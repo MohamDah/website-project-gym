@@ -10,6 +10,9 @@ module.exports = {
         darkgreen: "#00672E",
         primarybg: "#EFECEA",
       },
+      screens: {
+        xs: "340px"
+      }
     },
   },
   plugins: [],
