@@ -51,12 +51,13 @@
     alt="Chips Background"
   />
   <ul
-  onclick="closeMenu()"
     class="font-semibold flex flex-col gap-10 px-6 text-darkgreen text-center text-2xl mt-44 sm:mt-32"
   >
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#references">References</a></li>
-    <li><a href="#contacts">Contact</a></li>
+    <li><a onclick="closeMenu()" href="#about">About</a></li>
+    <li><a onclick="closeMenu()" href="#services">Services</a></li>
+    <li>
+      <a onclick="closeMenu()" href="#references">References</a>
+    </li>
+    <li><a onclick="closeMenu()" href="#contacts">Contact</a></li>
   </ul>
 </nav>

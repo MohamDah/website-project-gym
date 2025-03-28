@@ -1,45 +1,45 @@
 <header>
-<!-- desktop -->
-<div
-  class="flex mx-auto justify-between pt-2 pb-2 px-4 fixed z-50 w-full top-0 text-xl mt-6 md:mt-0 text-darkgreen"
->
-  <div class="font-medium w-28 flex flex-col">
-    <a href="/imprint.html">DE</a>
-    <a href="/policyPrivacy.html">EN</a>
-  </div>
-  <a
-    class="self-center font-bold text-4xl relative px-5 flex justify-center items-center"
-    href="/index.html"
+  <!-- desktop -->
+  <div
+    class="flex mx-auto justify-between pt-2 pb-2 px-4 fixed z-50 w-full top-0 text-xl mt-6 md:mt-0 text-darkgreen"
   >
-    <img
-      class="absolute -z-10 w-full md:hidden"
-      src="/src/assets/whiteHeader.svg"
-      alt="White Chip"
-    />
-    Baumeister
-  </a>
-  <ul class="font-medium hidden md:flex md:flex-col md:text-right w-28">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#references">References</a></li>
-    <li><a href="#contacts">Contact</a></li>
-  </ul>
-  <!-- Mobile -->
-  <div class="flex justify-end items-center md:hidden w-28">
-    <img
-      id="menu-btn"
-      src="/src/assets/menuGreen.svg"
-      alt="Menu"
-      class="min-h-5 cursor-pointer"
-    />
-    <img
-      id="close-btn"
-      src="/src/assets/closeGreen.svg"
-      alt="Close"
-      class="min-h-5 cursor-pointer hidden"
-    />
+    <div class="font-medium w-28 flex flex-col">
+      <a href="/imprint.html">DE</a>
+      <a href="/policyPrivacy.html">EN</a>
+    </div>
+    <a
+      class="self-center font-bold text-4xl relative px-5 flex justify-center items-center"
+      href="/index.html"
+    >
+      <img
+        class="absolute -z-10 w-full md:hidden"
+        src="/src/assets/whiteHeader.svg"
+        alt="White Chip"
+      />
+      Baumeister
+    </a>
+    <ul class="font-medium hidden md:flex md:flex-col md:text-right w-28">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#references">References</a></li>
+      <li><a href="#contacts">Contact</a></li>
+    </ul>
+    <!-- Mobile -->
+    <div class="flex justify-end items-center md:hidden w-28">
+      <img
+        id="menu-btn"
+        src="/src/assets/menuGreen.svg"
+        alt="Menu"
+        class="min-h-5 cursor-pointer"
+      />
+      <img
+        id="close-btn"
+        src="/src/assets/closeGreen.svg"
+        alt="Close"
+        class="min-h-5 cursor-pointer hidden"
+      />
+    </div>
   </div>
-</div>
 </header>
 
 <!-- Mobile menu -->
@@ -53,12 +53,13 @@
     alt="Chips Background"
   />
   <ul
-  onclick="closeMenu()"
     class="font-semibold flex flex-col gap-10 px-6 text-darkgreen text-center text-2xl mt-44 sm:mt-32"
   >
-  <li><a href="index.html#about">About</a></li>
-  <li><a href="index.html#services">Services</a></li>
-  <li><a href="index.html#references">References</a></li>
-  <li><a href="index.html#contacts">Contact</a></li>
-</ul>
+    <li><a onclick="closeMenu()" href="index.html#about">About</a></li>
+    <li><a onclick="closeMenu()" href="index.html#services">Services</a></li>
+    <li>
+      <a onclick="closeMenu()" href="index.html#references">References</a>
+    </li>
+    <li><a onclick="closeMenu()" href="index.html#contacts">Contact</a></li>
+  </ul>
 </nav>
