@@ -54,18 +54,11 @@
           closeBtn.classList.remove("hidden");
         });
 
-        closeBtn.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-
-          menuBtn.classList.remove("hidden");
-          closeBtn.classList.add("hidden");
-        });
+        closeBtn.addEventListener("click", closeMenu);
 
         window.addEventListener("resize", () => {
           if (window.innerWidth > 768 && menuBtn.classList.contains("hidden")) {
-            mobileMenu.classList.add("translate-x-full");
-            menuBtn.classList.remove("hidden");
-            closeBtn.classList.add("hidden");
+            closeMenu()
           }
         });
       }
