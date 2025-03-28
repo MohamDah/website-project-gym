@@ -22,6 +22,17 @@
         });
     };
 
+    const closeMenu = () => {
+      const closeBtn = document.getElementById("close-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenu.classList.add("translate-x-full");
+
+      menuBtn.classList.remove("hidden")
+      closeBtn.classList.add("hidden")
+    }
+
+
     window.onload = () => {
       loadComponents("header", "src/sections/header.html", initializeMenu);
       loadComponents("hero", "src/sections/hero.html");
