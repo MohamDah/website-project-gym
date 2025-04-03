@@ -8,8 +8,11 @@ module.exports = {
       },
       colors: {
         darkgreen: "#00672E",
-        primarybg: "#EFECEA"
+        primarybg: "#EFECEA",
       },
+      screens: {
+        xs: "340px"
+      }
     },
   },
   plugins: [],

@@ -22,52 +22,56 @@
         });
     };
 
+    const closeMenu = () => {
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenu.classList.add("translate-x-full");
+      closeBtn.classList.add("hidden");
+      menuBtn.classList.remove("hidden");
+    };
+
     window.onload = () => {
       loadComponents("header", "src/sections/header.html", initializeMenu);
       loadComponents("hero", "src/sections/hero.html");
       loadComponents("about", "src/sections/about.html");
-      loadComponents("contact", "src/sections/contact.html");
+      loadComponents("services", "src/sections/services.html");
+      loadComponents("references", "src/sections/references.html");
       loadComponents("footer", "src/sections/footer.html");
     };
 
-  function initializeMenu() {
-    const menuBtn = document.getElementById("menu-btn");
-    const closeBtn = document.getElementById("close-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    function initializeMenu() {
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-    if (menuBtn && closeBtn && mobileMenu) {
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("translate-x-full");
+      if (menuBtn && closeBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("translate-x-full");
 
-        menuBtn.classList.add("hidden")
-        closeBtn.classList.remove("hidden")
-      });
-      
-      closeBtn.addEventListener("click", () => {
-        mobileMenu.classList.add("translate-x-full");
+          menuBtn.classList.add("hidden");
+          closeBtn.classList.remove("hidden");
+        });
 
-        menuBtn.classList.remove("hidden")
-        closeBtn.classList.add("hidden")
-      });
+        closeBtn.addEventListener("click", closeMenu);
 
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 768 && menuBtn.classList.contains("hidden")) {
-          mobileMenu.classList.add("translate-x-full");
-          menuBtn.classList.remove("hidden")
-          closeBtn.classList.add("hidden")
-        }
-      })
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768 && menuBtn.classList.contains("hidden")) {
+            closeMenu()
+          }
+        });
+      }
     }
-  }
-</script>
-
+  </script>
 
   <body class="bg-primarybg">
     <header id="header"></header>
     <main>
-      <div id="hero"></div>
-      <div id="about"></div>
-      <div id="contact"></div>
+      <section id="hero"></section>
+      <section id="about"></section>
+      <section id="services"></section>
+      <section id="references"></section>
     </main>
     <footer id="footer"></footer>
   </body>
